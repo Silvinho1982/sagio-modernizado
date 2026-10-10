@@ -1,0 +1,3 @@
+package br.com.sagio.lead;
+import org.springframework.stereotype.Service;
+@Service public class LeadService { private final LeadRepository repository; public LeadService(LeadRepository repository){this.repository=repository;} public LeadResponse criar(LeadRequest request){Lead lead=new Lead(request.nome().trim(),request.email().trim().toLowerCase(),request.telefone().trim(),request.passeio().trim(),request.dataPasseio(),request.quantidadePessoas(),request.consentimentoLgpd());return LeadResponse.from(repository.save(lead));} }

@@ -1,0 +1,3 @@
+package br.com.sagio.lead;
+import jakarta.validation.constraints.*; import java.time.LocalDate;
+public record LeadRequest(@NotBlank @Size(min=2,max=120) String nome,@NotBlank @Email @Size(max=180) String email,@NotBlank @Size(min=8,max=30) String telefone,@NotBlank @Size(max=120) String passeio,@FutureOrPresent LocalDate dataPasseio,@NotNull @Min(1) @Max(100) Integer quantidadePessoas,@AssertTrue(message="O consentimento para tratamento dos dados é obrigatório.") boolean consentimentoLgpd) {}

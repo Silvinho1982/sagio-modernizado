@@ -1,0 +1,11 @@
+# Secrets and local files
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+ui/.next/
+ui/node_modules/
+api/target/
+coverage/
+.DS_Store

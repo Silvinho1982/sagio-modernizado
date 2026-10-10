@@ -1,0 +1,3 @@
+package br.com.sagio.lead;
+import jakarta.validation.Valid; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/leads") public class LeadController { private final LeadService service; public LeadController(LeadService service){this.service=service;} @PostMapping @ResponseStatus(HttpStatus.CREATED) public LeadResponse criar(@Valid @RequestBody LeadRequest request){return service.criar(request);} }

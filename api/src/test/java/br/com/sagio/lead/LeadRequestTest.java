@@ -1,0 +1,3 @@
+package br.com.sagio.lead;
+import jakarta.validation.*; import org.junit.jupiter.api.*; import java.util.Set; import static org.junit.jupiter.api.Assertions.*;
+class LeadRequestTest { private Validator validator; @BeforeEach void setup(){validator=Validation.buildDefaultValidatorFactory().getValidator();} @Test void rejectsInvalidEmail(){LeadRequest r=new LeadRequest("Maria Silva","email-invalido","86999999999","Delta",null,2,true);assertFalse(validator.validate(r).isEmpty());} @Test void rejectsMissingConsent(){LeadRequest r=new LeadRequest("Maria Silva","maria@example.com","86999999999","Delta",null,2,false);assertTrue(validator.validate(r).stream().anyMatch(v->v.getMessage().contains("consentimento")));} }
